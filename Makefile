@@ -11,7 +11,7 @@ test:
 	$(GOTEST) -v ./...
 
 lint:
-	$(GOLINT) run -v ./...
+	$(GOLINT) run -v ./... -c .golangci.yaml
 
 build:
 	$(GOBUILD) -o $(BINARY_NAME) -v

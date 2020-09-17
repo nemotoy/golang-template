@@ -3,16 +3,31 @@ run:
 
 linters-settings:
   gocyclo:
-    min-complexity: 20
+    min-complexity: 10
+  lll:
+    line-length: 100
+  misspell:
+    locale: US
+  funlen:
+    lines: 60
+    statements: 40
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - gocyclo
+        - lll
+        - stylecheck
+        - funlen
+        - staticcheck
 
 linters:
   disable-all: true
   enable:
     - goimports
-    - golint
     - govet
     - misspell
-    - errcheck
     - staticcheck
     - prealloc
     - ineffassign
@@ -21,3 +36,14 @@ linters:
     - gosimple
     - structcheck
     - varcheck
+    - stylecheck
+    - lll
+    - deadcode
+    - unconvert
+    - unparam
+    - funlen
+    - interfacer
+    - maligned
+    - gocritic
+    - scopelint
+    - wsl
